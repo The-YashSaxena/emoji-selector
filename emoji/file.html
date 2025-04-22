@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8">
+  <title>Emoji Selector</title>
+
+</head>
+<body>
+  <h1>Get Emojis by Category</h1>
+  <select id="emoji-select">
+    <option value="">-- Choose a Category --</option>
+    <option value="disrespect">Disrespect</option>
+    <option value="love">Love</option>
+    <option value="happy">Happy</option>
+    <option value="angry">Angry</option>
+    <option value="sad">Sad</option>
+  </select>
+
+  <div id="emoji-output"></div>
+<script>
+    const emojiMap = {
+    disrespect: ["🤡", "🙄", "😒", "🖕", "💅", "👎", "💀", "📉", "🐍", "🎪"],
+    love: ["❤️", "😍", "😘", "💖", "💘", "💕", "💞", "🥰"],
+    happy: ["😄", "😃", "😀", "😁", "😊", "🥳", "😸", "🤗"],
+    angry: ["😡", "😠", "🤬", "😤", "👿", "💢"],
+    sad: ["😢", "😭", "😞", "😔", "😿", "☹️"]
+  };
+
+  const select = document.getElementById("emoji-select");
+  const output = document.getElementById("emoji-output");
+
+  select.addEventListener("change", () => {
+    const category = select.value;
+    output.textContent = emojiMap[category]?.join(" ") || "";
+  });
+</script>
+</body>
+</html>
